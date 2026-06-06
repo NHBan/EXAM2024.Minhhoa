@@ -1,10 +1,10 @@
-function TaskForm()
+function TaskForm({isOpen,onClose})
 {
     return(
         <>
-        <div className="modal-overlay">
+        <div className={`modal-overlay ${isOpen ? "modal-start":""}`}>
         <div className="modal-content d-flex flex-column gap-15">
-            <p className="text-title">Add task</p>
+            <p className="text-title" >Add task</p>
             <div className="d-flex flex-column gap-10">
                 <p className="label">Task</p>
                 <input type="text" className="input" placeholder="Type your task here..."/>
@@ -19,6 +19,7 @@ function TaskForm()
                 <div className="d-flex flex-end">
                     <button className="btn bg-primary">Add</button>
                 </div>
+                <button className="btn btn-close" onClick={onClose}>X</button>
             </div>
         </div>
     </div>

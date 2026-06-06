@@ -12,11 +12,14 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
   const [taskList,setTaskList]=useState(dataList)
+  const[isModalOpen,setIsModalOpen]=useState(false)
   return (
     <>
-     <Header/>
+     <Header onOpen={()=>setIsModalOpen(true)}/>
      <TaskList taskList={dataList}/>
-     <TaskForm/>
+     <TaskForm
+     isOpen={isModalOpen}  onClose={()=>setIsModalOpen(false)}
+     />
     </>
   )
 }
