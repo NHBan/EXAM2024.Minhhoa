@@ -1,12 +1,17 @@
 import TaskItem from "./TaskItem"
-function TaskList()
+function TaskList({taskList})
 {
     return(
         <>
              <section class="container d-flex flex-column gap-10">
-                <TaskItem/>
-                <TaskItem/>
-                <TaskItem/>
+                {
+                    taskList.map(task=>
+                        <TaskItem
+                        key={task.id}
+                        task={task}
+                        />
+                    )
+                }
 
              </section>
         </>

@@ -1,15 +1,15 @@
-function TaskItem()
+function TaskItem({task})
 {
     return(
         <>
          <article className="d-flex space-between task-item">
             <div className="task-col">
                 <p className="label">Task</p>
-                <p>Cong viec</p>
+                <p>{task.name}</p>
             </div>
             <div className="task-col">
                 <p className="label">Priority</p>
-                <p>Muc do</p>
+                <p className={`color-${task.priority.toLowerCase()}`}>{task.priority}</p>
             </div>
             <div className="task-col justify-center">
                 <p className="label">Todo</p>
