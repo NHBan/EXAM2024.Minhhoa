@@ -17,10 +17,14 @@ function App() {
   {
     setTaskList([...taskList,newTask])
   }
+  function handleDelete(id)
+  {
+    setTaskList(taskList.filter(task=>task.id!==id))
+  }
   return (
     <>
      <Header onOpen={()=>setIsModalOpen(true)}/>
-     <TaskList taskList={taskList}/>
+     <TaskList taskList={taskList} onDelete={handleDelete}/>
      <TaskForm
      isOpen={isModalOpen}  onClose={()=>setIsModalOpen(false)} onAdd={handleAdd}
      />

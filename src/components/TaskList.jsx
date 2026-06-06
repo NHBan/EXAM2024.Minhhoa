@@ -1,5 +1,5 @@
 import TaskItem from "./TaskItem"
-function TaskList({taskList})
+function TaskList({taskList,onDelete})
 {
     return(
         <>
@@ -9,6 +9,7 @@ function TaskList({taskList})
                         <TaskItem
                         key={task.id}
                         task={task}
+                        onDelete={onDelete}
                         />
                     )
                 }

@@ -1,4 +1,4 @@
-function TaskItem({task})
+function TaskItem({task,onDelete})
 {
     return(
         <>
@@ -16,7 +16,7 @@ function TaskItem({task})
             </div>
             <div className="d-flex">
                 <div><button className="btn btn-primary color-light">Them</button></div>
-                <div><button className="btn bg-high color-light">Xoa</button></div>
+                <div><button className="btn bg-high color-light" onClick={()=>onDelete(task.id)}>Xoa</button></div>
             </div>
         </article>
         </>
