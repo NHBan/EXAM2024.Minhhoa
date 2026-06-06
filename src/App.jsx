@@ -11,15 +11,22 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-  const [taskList,setTaskList]=useState(dataList)
+  const [taskList, setTaskList] = useState(() => {
+    const savedData = localStorage.getItem("myTasks")
+    return savedData ? JSON.parse(savedData) : dataList
+})
   const[isModalOpen,setIsModalOpen]=useState(false)
   function handleAdd(newTask)
   {
-    setTaskList([...taskList,newTask])
+   const newList = [...taskList, newTask] 
+    setTaskList(newList)
+    localStorage.setItem("myTasks", JSON.stringify(newList))
   }
   function handleDelete(id)
   {
-    setTaskList(taskList.filter(task=>task.id!==id))
+   const newList = taskList.filter(task => task.id !== id) 
+    setTaskList(newList)
+    localStorage.setItem("myTasks", JSON.stringify(newList))
   }
   return (
     <>
