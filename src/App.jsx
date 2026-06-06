@@ -13,12 +13,16 @@ function App() {
   const [count, setCount] = useState(0)
   const [taskList,setTaskList]=useState(dataList)
   const[isModalOpen,setIsModalOpen]=useState(false)
+  function handleAdd(newTask)
+  {
+    setTaskList([...taskList,newTask])
+  }
   return (
     <>
      <Header onOpen={()=>setIsModalOpen(true)}/>
-     <TaskList taskList={dataList}/>
+     <TaskList taskList={taskList}/>
      <TaskForm
-     isOpen={isModalOpen}  onClose={()=>setIsModalOpen(false)}
+     isOpen={isModalOpen}  onClose={()=>setIsModalOpen(false)} onAdd={handleAdd}
      />
     </>
   )
